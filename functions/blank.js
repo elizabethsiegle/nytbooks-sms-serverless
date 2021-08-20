@@ -7,16 +7,15 @@ exports.handler = function(context, event, callback) {
 	let twiml = new Twilio.twiml.MessagingResponse();
   let inbMsg = event.Body.toLowerCase().trim();
   if(inbMsg.includes('bestsellers')) {
-    url = 'https://api.nytimes.com/svc/books/v3/lists.json';
+    url = 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json';
   }
-  // const message = twiml.message();
   superagent.get(`${url}?api-key=${context.NYT_KEY}&list=Hardcover Fiction`)
   .end((err, res) => {
-    twiml.message(JSON.stringify(res.body.results[0].book_details));
+    let booksArr = [];
+    res.body.results.books.forEach(book => {
+      booksArr.push(book.title.toLowerCase());
+    });
+    twiml.message(booksArr.toString().replace(/,/g, ', '));
     callback(null, twiml);
   });
-
-  // This callback is what is returned in response to this function being invoked.
-  // It's really important! E.g. you might respond with TWiML here for a voice or SMS response.
-  // Or you might return JSON data to a studio flow. Don't forget it!
 };
