@@ -1,6 +1,8 @@
 ### Built on Twitch 8/19
 
-Text "bestsellers" to +12155156567 to get the top 15 books on the NYT bestselling hardcover list using the [NYT Books API](https://developer.nytimes.com/docs/books-product/1/overview), [Twilio Functions](https://www.twilio.com/docs/runtime/functions), and the [Twilio Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit)
+Text "bestsellers" to +12155156567 to get the top 15 books on the NYT bestselling hardcover list using the [NYT Books API](https://developer.nytimes.com/docs/books-product/1/overview), [Twilio Functions](https://www.twilio.com/docs/runtime/functions), and the [Twilio Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit). 
+
+You will need an API key for the NYT API! [Follow the directions here](https://developer.nytimes.com/get-started) to get one.
 
 JS code is in `functions/blank.js`. To run the code, you will need to install the Twilio Serverless Toolkit.
 ```bash
